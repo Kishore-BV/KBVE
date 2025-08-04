@@ -134,6 +134,11 @@ All colors MUST be HSL for consistency and theme support.
     overflow-x: hidden;
   }
 
+  /* Tech Typography */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
   /* Cyberpunk Typography */
   .text-neon {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary;
