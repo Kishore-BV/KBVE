@@ -68,29 +68,29 @@ export default engineer;`;
       
       {/* Content Container */}
       <div className="relative z-10 w-full h-full max-w-none mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-center h-full py-8 lg:py-12 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-start h-full py-8 lg:py-12 max-w-7xl mx-auto">
           
           {/* Left Column - Main Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-3 space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
+            className="lg:col-span-3 space-y-6 lg:space-y-8 flex flex-col justify-start h-full pt-12 lg:pt-16 text-left"
           >
             {/* Greeting & Name */}
-            <motion.div variants={itemVariants} className="space-y-3 lg:space-y-4">
+            <motion.div variants={itemVariants} className="space-y-3 lg:space-y-4 text-left">
               <div className="flex items-center gap-2 text-accent font-mono text-sm lg:text-base">
                 <span className="w-6 lg:w-8 h-px bg-accent"></span>
                 <span>Hello World, I'm</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-left">
                 <span className="text-neon animate-neon-pulse">
                   Kishore BV
                 </span>
               </h1>
               
-              <div className="text-xl sm:text-2xl lg:text-3xl text-foreground">
+              <div className="text-xl sm:text-2xl lg:text-3xl text-foreground text-left">
                 <TypingAnimation 
                   texts={typingTexts}
                   className="text-transparent bg-clip-text bg-gradient-secondary"
@@ -99,7 +99,7 @@ export default engineer;`;
             </motion.div>
 
             {/* Description */}
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="text-left">
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 Driven Automation & Robotics Engineering undergraduate with hands-on experience in 
                 <span className="text-primary"> R&D</span>, 
@@ -110,10 +110,10 @@ export default engineer;`;
             </motion.div>
 
             {/* Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-start">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group flex-1 sm:flex-none"
+                className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group w-auto"
               >
                 <ExternalLink className="w-4 h-4 mr-2 group-hover:animate-pulse" />
                 View Projects
@@ -122,7 +122,7 @@ export default engineer;`;
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-accent text-accent hover:bg-accent/10 hover:border-accent-glow flex-1 sm:flex-none"
+                className="border-accent text-accent hover:bg-accent/10 hover:border-accent-glow w-auto"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download CV
@@ -130,7 +130,7 @@ export default engineer;`;
             </motion.div>
 
             {/* Social Links */}
-            <motion.div variants={itemVariants} className="flex gap-4">
+            <motion.div variants={itemVariants} className="flex gap-4 justify-start">
               {[
                 { icon: Github, href: '#', label: 'GitHub' },
                 { icon: Linkedin, href: '#', label: 'LinkedIn' },
