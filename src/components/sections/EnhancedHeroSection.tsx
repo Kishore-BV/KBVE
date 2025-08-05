@@ -67,15 +67,15 @@ export default engineer;`;
       <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
       
       {/* Content Container */}
-      <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center h-full py-8 lg:py-12">
+      <div className="relative z-10 w-full h-full max-w-none mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-center h-full py-8 lg:py-12 max-w-7xl mx-auto">
           
           {/* Left Column - Main Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
+            className="lg:col-span-3 space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
           >
             {/* Greeting & Name */}
             <motion.div variants={itemVariants} className="space-y-3 lg:space-y-4">
@@ -156,7 +156,7 @@ export default engineer;`;
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
+            className="lg:col-span-2 space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
           >
             {/* Code Block */}
             <motion.div variants={itemVariants}>
