@@ -59,7 +59,7 @@ export default engineer;`;
   };
 
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="about" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* 3D Background Scene */}
       <Scene3D />
       
@@ -67,30 +67,30 @@ export default engineer;`;
       <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
       
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center h-full py-8 lg:py-12">
           
           {/* Left Column - Main Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
           >
             {/* Greeting & Name */}
-            <motion.div variants={itemVariants} className="space-y-4">
-              <div className="flex items-center gap-2 text-accent font-mono">
-                <span className="w-8 h-px bg-accent"></span>
+            <motion.div variants={itemVariants} className="space-y-3 lg:space-y-4">
+              <div className="flex items-center gap-2 text-accent font-mono text-sm lg:text-base">
+                <span className="w-6 lg:w-8 h-px bg-accent"></span>
                 <span>Hello World, I'm</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-neon animate-neon-pulse">
                   Kishore BV
                 </span>
               </h1>
               
-              <div className="text-2xl md:text-3xl text-foreground">
+              <div className="text-xl sm:text-2xl lg:text-3xl text-foreground">
                 <TypingAnimation 
                   texts={typingTexts}
                   className="text-transparent bg-clip-text bg-gradient-secondary"
@@ -100,7 +100,7 @@ export default engineer;`;
 
             {/* Description */}
             <motion.div variants={itemVariants}>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 Driven Automation & Robotics Engineering undergraduate with hands-on experience in 
                 <span className="text-primary"> R&D</span>, 
                 <span className="text-secondary"> drone systems</span>, and 
@@ -110,10 +110,10 @@ export default engineer;`;
             </motion.div>
 
             {/* Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 lg:gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group"
+                className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group flex-1 sm:flex-none"
               >
                 <ExternalLink className="w-4 h-4 mr-2 group-hover:animate-pulse" />
                 View Projects
@@ -122,7 +122,7 @@ export default engineer;`;
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-accent text-accent hover:bg-accent/10 hover:border-accent-glow"
+                className="border-accent text-accent hover:bg-accent/10 hover:border-accent-glow flex-1 sm:flex-none"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download CV
@@ -156,7 +156,7 @@ export default engineer;`;
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
           >
             {/* Code Block */}
             <motion.div variants={itemVariants}>
@@ -169,10 +169,10 @@ export default engineer;`;
 
             {/* Skills Grid */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
+              <h3 className="text-lg lg:text-xl font-semibold mb-3 lg:mb-4 text-foreground">
                 <span className="text-accent font-mono">&gt;</span> Core Expertise
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3">
                 {skills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
