@@ -26,8 +26,17 @@ export const HeroSection = () => {
     },
   };
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/Kishore_BV_Resume.pdf';
+    link.download = 'Kishore_BV_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="about" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* 3D Background Scene */}
       <Scene3D />
       
@@ -86,6 +95,7 @@ export const HeroSection = () => {
               size="lg" 
               variant="outline"
               className="border-secondary text-secondary hover:bg-secondary/10 hover:border-secondary-glow transition-all duration-300"
+              onClick={handleDownloadResume}
             >
               Download Resume
             </Button>
@@ -93,7 +103,7 @@ export const HeroSection = () => {
 
           {/* Skills Preview */}
           <motion.div variants={itemVariants} className="mt-16">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center h-full w-full">
               {['React', 'Three.js', 'Node.js', 'AI/ML'].map((skill, index) => (
                 <motion.div
                   key={skill}

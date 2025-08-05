@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MessageCircle, Send, Minimize2, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { MessageCircle, X, Minimize2, Maximize2, Send, Download } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -25,6 +25,15 @@ export const WebAssistant = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/Kishore_BV_Resume.pdf';
+    link.download = 'Kishore_BV_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleSendMessage = () => {
     if (!inputMessage.trim()) return;
 
@@ -38,19 +47,32 @@ export const WebAssistant = () => {
 
     setMessages(prev => [...prev, userMessage]);
 
+    // Check if user is asking about resume download
+    const isResumeRequest = inputMessage.toLowerCase().includes('resume') || 
+                           inputMessage.toLowerCase().includes('cv') || 
+                           inputMessage.toLowerCase().includes('download');
+
     // Simulate AI response
     setTimeout(() => {
-      const responses = [
-        'Kishore specializes in full-stack development with React, Node.js, and 3D technologies!',
-        'I can help you navigate to any section of the portfolio. What would you like to explore?',
-        'Kishore has worked on several impressive projects including 3D web experiences and AI-powered dashboards.',
-        'Would you like me to download his resume or redirect you to a specific project?',
-        'Kishore is passionate about creating immersive digital experiences. Check out the Projects section!'
-      ];
+      let response: string;
+      
+      if (isResumeRequest) {
+        response = 'I\'ll download Kishore\'s resume for you right away!';
+        handleDownloadResume();
+      } else {
+        const responses = [
+          'Kishore specializes in full-stack development with React, Node.js, and 3D technologies!',
+          'I can help you navigate to any section of the portfolio. What would you like to explore?',
+          'Kishore has worked on several impressive projects including 3D web experiences and AI-powered dashboards.',
+          'Would you like me to download his resume or redirect you to a specific project?',
+          'Kishore is passionate about creating immersive digital experiences. Check out the Projects section!'
+        ];
+        response = responses[Math.floor(Math.random() * responses.length)];
+      }
 
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: responses[Math.floor(Math.random() * responses.length)],
+        content: response,
         isUser: false,
         timestamp: new Date()
       };

@@ -42,10 +42,14 @@ export const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
-            className="text-2xl font-bold text-neon"
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            Kishore BV
+            <img 
+              src="/Innovative Wordmark Logo with Robotic Arm.png" 
+              alt="Kishore BV Logo" 
+              className="h-12 w-auto object-contain"
+            />
           </motion.div>
 
           {/* Navigation Items */}

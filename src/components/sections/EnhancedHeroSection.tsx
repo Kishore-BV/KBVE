@@ -32,7 +32,7 @@ export default engineer;`;
     { name: 'Machine Learning', level: 88, category: 'ai' as const },
     { name: 'CAD Design', level: 90, category: 'design' as const },
     { name: 'Python', level: 85, category: 'programming' as const },
-    { name: 'MATLAB', level: 80, category: 'programming' as const }
+    { name: 'AI AGENTS', level: 90, category: 'programming' as const }
   ];
 
   const containerVariants = {
@@ -58,127 +58,132 @@ export default engineer;`;
     },
   };
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/Kishore_BV_Resume.pdf';
+    link.download = 'Kishore_BV_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <section id="about" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="about" className="relative h-screen w-full overflow-hidden pt-4">
       {/* 3D Background Scene */}
-      <Scene3D />
-      
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Scene3D />
+      </div>
+
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
-      
-      {/* Content Container */}
-      <div className="relative z-10 w-full h-full max-w-none mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-start h-full py-8 lg:py-12 max-w-7xl mx-auto">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0" />
+
+      {/* Hero Logo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="absolute top-8 left-8 z-20"
+      >
+        <img 
+          src="/Innovative Wordmark Logo with Robotic Arm.png" 
+          alt="Kishore BV Logo" 
+          className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+        />
+      </motion.div>
+
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div className="grid lg:grid-cols-12 gap-8 items-center w-full h-full">
           
-          {/* Left Column - Main Content */}
+          {/* Left Section */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-3 space-y-6 lg:space-y-8 flex flex-col justify-start h-full pt-12 lg:pt-16 text-left"
+            className="lg:col-span-7 w-full space-y-6 text-center lg:text-left flex flex-col justify-center"
           >
-            {/* Greeting & Name */}
-            <motion.div variants={itemVariants} className="space-y-3 lg:space-y-4 text-left">
-              <div className="flex items-center gap-2 text-accent font-mono text-sm lg:text-base">
-                <span className="w-6 lg:w-8 h-px bg-accent"></span>
+            <motion.div variants={itemVariants} className="space-y-4">
+              <div className="flex items-center gap-3 text-accent font-mono text-sm lg:text-base justify-center lg:justify-start">
+                <span className="w-8 h-px bg-accent"></span>
                 <span>Hello World, I'm</span>
               </div>
-              
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-left">
-                <span className="text-neon animate-neon-pulse">
-                  Kishore BV
-                </span>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="text-neon animate-neon-pulse">Kishore BV</span>
               </h1>
-              
-              <div className="text-xl sm:text-2xl lg:text-3xl text-foreground text-left">
-                <TypingAnimation 
+
+              <div className="text-2xl sm:text-3xl lg:text-4xl text-foreground">
+                <TypingAnimation
                   texts={typingTexts}
                   className="text-transparent bg-clip-text bg-gradient-secondary"
                 />
               </div>
             </motion.div>
 
-            {/* Description */}
-            <motion.div variants={itemVariants} className="text-left">
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                Driven Automation & Robotics Engineering undergraduate with hands-on experience in 
+            <motion.div variants={itemVariants}>
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Driven Automation & Robotics Engineering undergraduate with hands-on experience in
                 <span className="text-primary"> R&D</span>, 
                 <span className="text-secondary"> drone systems</span>, and 
-                <span className="text-accent"> machine learning applications</span>. 
-                Specializing in smart automation solutions that bridge theoretical knowledge with real-world innovation.
+                <span className="text-accent"> machine learning applications</span>. Specializing in smart automation solutions that bridge theoretical knowledge with real-world innovation.
               </p>
             </motion.div>
 
-            {/* Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-start">
-              <Button 
-                size="lg" 
-                className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group w-auto"
-              >
-                <ExternalLink className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 items-center lg:items-start">
+              <Button size="lg" className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group px-8 py-3 text-lg">
+                <ExternalLink className="w-5 h-5 mr-3 group-hover:animate-pulse" />
                 View Projects
               </Button>
-              
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
-                className="border-accent text-accent hover:bg-accent/10 hover:border-accent-glow w-auto"
+                className="border-accent text-accent hover:bg-accent/10 hover:border-accent-glow px-8 py-3 text-lg"
+                onClick={handleDownloadResume}
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
+                <Download className="w-5 h-5 mr-3" />
+                Download Resume
               </Button>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div variants={itemVariants} className="flex gap-4 justify-start">
+            <motion.div variants={itemVariants} className="flex gap-4 justify-center lg:justify-start">
               {[
                 { icon: Github, href: '#', label: 'GitHub' },
                 { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:kishore@example.com', label: 'Email' }
+                { icon: Mail, href: 'mailto:kishore@example.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <Button
                   key={label}
                   variant="ghost"
                   size="icon"
-                  className="w-10 h-10 hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                  className="w-12 h-12 hover:bg-primary/10 hover:text-primary transition-all duration-300"
                   asChild
                 >
                   <a href={href} aria-label={label}>
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-6 h-6" />
                   </a>
                 </Button>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Tech Content */}
+          {/* Right Section */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-2 space-y-6 lg:space-y-8 flex flex-col justify-center h-full"
+            className="lg:col-span-5 w-full space-y-8 flex flex-col justify-center"
           >
-            {/* Code Block */}
             <motion.div variants={itemVariants}>
-              <CodeBlock
-                code={codeExample}
-                language="javascript"
-                title="developer.js"
-              />
+              <CodeBlock code={codeExample} language="javascript" title="" />
             </motion.div>
 
-            {/* Skills Grid */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-lg lg:text-xl font-semibold mb-3 lg:mb-4 text-foreground">
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-foreground">
                 <span className="text-accent font-mono">&gt;</span> Core Expertise
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3">
+              <div className="grid grid-cols-1 gap-4">
                 {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    variants={itemVariants}
-                    transition={{ delay: index * 0.1 }}
-                  >
+                  <motion.div key={skill.name} variants={itemVariants} transition={{ delay: index * 0.1 }}>
                     <SkillCard {...skill} />
                   </motion.div>
                 ))}
@@ -190,7 +195,7 @@ export default engineer;`;
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
       >

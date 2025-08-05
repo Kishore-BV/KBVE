@@ -14,7 +14,7 @@ export const Scene3D: React.FC<Scene3DProps> = ({
   return (
     <Canvas
       camera={{ position: [0, 0, 10], fov: 50 }}
-      className="absolute inset-0 -z-10"
+      className="absolute inset-0 w-full h-full overflow-hidden z-0"
     >
       {/* Lighting */}
       <ambientLight intensity={0.2} />
