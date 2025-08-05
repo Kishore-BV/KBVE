@@ -4,10 +4,14 @@ interface SkillProps {
   name: string;
   level: number;
   icon?: React.ReactNode;
-  category: 'frontend' | 'backend' | 'tools' | 'mobile';
+  category: 'engineering' | 'ai' | 'design' | 'programming' | 'frontend' | 'backend' | 'tools' | 'mobile';
 }
 
 const categoryColors = {
+  engineering: 'from-primary to-primary-glow',
+  ai: 'from-secondary to-secondary-glow',
+  design: 'from-accent to-accent-glow',
+  programming: 'from-purple-500 to-pink-500',
   frontend: 'from-primary to-primary-glow',
   backend: 'from-secondary to-secondary-glow',
   tools: 'from-accent to-accent-glow',

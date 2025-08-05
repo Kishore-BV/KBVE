@@ -8,30 +8,31 @@ import { Download, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
 export const EnhancedHeroSection = () => {
   const typingTexts = [
-    'Full Stack Developer',
-    '3D Web Specialist',
-    'AI Enthusiast',
-    'Problem Solver',
-    'Tech Innovator'
+    'Robotics Engineer',
+    'Drone Systems Developer',
+    'ML & AI Specialist',
+    'CAD Design Expert',
+    'R&D Innovator'
   ];
 
-  const codeExample = `// Bringing ideas to life with code
-const developer = {
+  const codeExample = `// Automation & Robotics Engineering
+const engineer = {
   name: "Kishore BV",
-  passion: "Creating immersive experiences",
-  skills: ["React", "Three.js", "Node.js", "AI/ML"],
-  mission: "Bridge imagination with reality"
+  field: "Automation & Robotics Engineering",
+  specialization: ["Drones", "ML", "CAD", "Robotics"],
+  experience: "R&D at Garuda Aerospace",
+  mission: "Smart automation for the future"
 };
 
-export default developer;`;
+export default engineer;`;
 
   const skills = [
-    { name: 'React', level: 95, category: 'frontend' as const },
-    { name: 'Node.js', level: 90, category: 'backend' as const },
-    { name: 'Three.js', level: 85, category: 'frontend' as const },
-    { name: 'Python', level: 88, category: 'backend' as const },
-    { name: 'Docker', level: 82, category: 'tools' as const },
-    { name: 'React Native', level: 78, category: 'mobile' as const }
+    { name: 'Robotics', level: 95, category: 'engineering' as const },
+    { name: 'Drone Systems', level: 92, category: 'engineering' as const },
+    { name: 'Machine Learning', level: 88, category: 'ai' as const },
+    { name: 'CAD Design', level: 90, category: 'design' as const },
+    { name: 'Python', level: 85, category: 'programming' as const },
+    { name: 'MATLAB', level: 80, category: 'programming' as const }
   ];
 
   const containerVariants = {
@@ -100,10 +101,11 @@ export default developer;`;
             {/* Description */}
             <motion.div variants={itemVariants}>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Passionate about creating cutting-edge digital experiences that blend 
-                <span className="text-primary"> innovative technology</span> with 
-                <span className="text-secondary"> creative design</span>. 
-                I specialize in full-stack development and immersive 3D web applications.
+                Driven Automation & Robotics Engineering undergraduate with hands-on experience in 
+                <span className="text-primary"> R&D</span>, 
+                <span className="text-secondary"> drone systems</span>, and 
+                <span className="text-accent"> machine learning applications</span>. 
+                Specializing in smart automation solutions that bridge theoretical knowledge with real-world innovation.
               </p>
             </motion.div>
 
@@ -168,7 +170,7 @@ export default developer;`;
             {/* Skills Grid */}
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-semibold mb-4 text-foreground">
-                <span className="text-accent font-mono">&gt;</span> Core Technologies
+                <span className="text-accent font-mono">&gt;</span> Core Expertise
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {skills.map((skill, index) => (

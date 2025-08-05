@@ -8,79 +8,79 @@ import { Github, ExternalLink, Star, GitFork } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: "3D Portfolio Ecosystem",
-    description: "A fully immersive portfolio website built with React Three Fiber, featuring advanced 3D animations, particle systems, and interactive environments.",
+    title: "Lifebuoy Rescue Drone",
+    description: "Advanced drone system for water rescue operations with autonomous lifebuoy deployment, GPS tracking, and real-time communication for emergency response teams.",
     image: "/api/placeholder/600/400",
-    technologies: ["React", "Three.js", "GSAP", "Tailwind", "Framer Motion"],
+    technologies: ["Arduino", "GPS", "Wireless Communication", "CAD Design", "Flight Control"],
     liveLink: "#",
     githubLink: "#",
     featured: true,
-    stats: { stars: 234, forks: 45 },
-    category: "3D Development"
+    stats: { stars: 134, forks: 28 },
+    category: "Drone Systems"
   },
   {
     id: 2,
-    title: "AI Analytics Dashboard",
-    description: "Enterprise-grade dashboard with machine learning insights, real-time data visualization, and predictive analytics powered by TensorFlow.",
+    title: "Intelligent Traffic Management System",
+    description: "ML-powered traffic signal control system with predictive analytics for optimizing traffic flow and reducing congestion in urban areas.",
     image: "/api/placeholder/600/400",
-    technologies: ["Next.js", "Python", "TensorFlow", "D3.js", "PostgreSQL"],
+    technologies: ["Python", "Machine Learning", "OpenCV", "TensorFlow", "IoT Sensors"],
     liveLink: "#",
     githubLink: "#",
     featured: true,
-    stats: { stars: 189, forks: 67 },
+    stats: { stars: 89, forks: 23 },
     category: "AI/ML"
   },
   {
     id: 3,
-    title: "Microservices E-Commerce",
-    description: "Scalable e-commerce platform with microservices architecture, advanced payment processing, and real-time inventory management.",
+    title: "Mobile Manipulator Robot",
+    description: "Autonomous mobile robot with manipulator arm for pharmaceutical delivery and material handling in medical facilities.",
     image: "/api/placeholder/600/400",
-    technologies: ["React", "Node.js", "MongoDB", "Docker", "Kubernetes"],
+    technologies: ["ROS", "Arduino", "Servo Control", "Path Planning", "Computer Vision"],
     liveLink: "#",
     githubLink: "#",
     featured: false,
-    stats: { stars: 156, forks: 34 },
-    category: "Full Stack"
+    stats: { stars: 67, forks: 15 },
+    category: "Robotics"
   },
   {
     id: 4,
-    title: "VR Training Platform",
-    description: "Virtual reality application for immersive corporate training with hand tracking, spatial audio, and progress analytics.",
+    title: "Solar Panel Cleaning Drone",
+    description: "Automated drone system for solar panel maintenance with cleaning mechanisms, efficiency monitoring, and predictive maintenance scheduling.",
     image: "/api/placeholder/600/400",
-    technologies: ["Unity", "C#", "WebXR", "Blender", "Node.js"],
+    technologies: ["Flight Control", "Cleaning Mechanism", "IoT", "Data Analytics", "CAD"],
     liveLink: "#",
     githubLink: "#",
     featured: false,
-    stats: { stars: 298, forks: 78 },
-    category: "VR/AR"
+    stats: { stars: 95, forks: 21 },
+    category: "Drone Systems"
   },
   {
     id: 5,
-    title: "Smart IoT Dashboard",
-    description: "Real-time IoT monitoring system with predictive maintenance alerts, energy optimization, and mobile companion app.",
+    title: "Maze Solver Robot",
+    description: "Intelligent maze-solving robot using advanced algorithms and sensor fusion for autonomous navigation and obstacle avoidance.",
     image: "/api/placeholder/600/400",
-    technologies: ["React Native", "Python", "MQTT", "InfluxDB", "Grafana"],
+    technologies: ["Arduino", "Ultrasonic Sensors", "Algorithm Design", "Motor Control", "Mapping"],
     liveLink: "#",
     githubLink: "#",
     featured: false,
-    stats: { stars: 123, forks: 29 },
-    category: "IoT"
+    stats: { stars: 45, forks: 12 },
+    category: "Robotics"
   },
   {
     id: 6,
-    title: "Blockchain DeFi Platform",
-    description: "Decentralized finance platform with yield farming, staking pools, and automated market making functionality.",
+    title: "CAD Design & Analysis Suite",
+    description: "Comprehensive CAD project portfolio including reverse engineering, topology optimization, and structural analysis for aerospace components.",
     image: "/api/placeholder/600/400",
-    technologies: ["React", "Solidity", "Web3.js", "Hardhat", "IPFS"],
+    technologies: ["SolidWorks", "ANSYS", "FEA", "CFD", "Topology Optimization"],
     liveLink: "#",
     githubLink: "#",
     featured: false,
-    stats: { stars: 445, forks: 156 },
-    category: "Blockchain"
+    stats: { stars: 78, forks: 18 },
+    category: "CAD Design"
   }
 ];
 
-const categories = ['All', '3D Development', 'AI/ML', 'Full Stack', 'VR/AR', 'IoT', 'Blockchain'];
+const categories = ['All', 'Drone Systems', 'AI/ML', 'Robotics', 'CAD Design'];
 
 export const EnhancedProjectsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
