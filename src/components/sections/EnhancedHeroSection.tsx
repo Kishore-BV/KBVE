@@ -178,10 +178,10 @@ export default engineer;`;
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-foreground">
+              <h3 className="text-xl lg:text-2xl font-semibold mb-6 text-foreground">
                 <span className="text-accent font-mono">&gt;</span> Core Expertise
               </h3>
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {skills.map((skill, index) => (
                   <motion.div key={skill.name} variants={itemVariants} transition={{ delay: index * 0.1 }}>
                     <SkillCard {...skill} />
