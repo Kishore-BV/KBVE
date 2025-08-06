@@ -60,18 +60,7 @@ export const Navigation = () => {
       return;
     }
     
-    // Handle About section - scroll to top of page
-    if (sectionId === 'about') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      setActiveSection(sectionId);
-      setIsMobileMenuOpen(false);
-      return;
-    }
-    
-    // Handle other sections
+    // Handle all sections uniformly
     const element = document.getElementById(sectionId);
     if (element) {
       const navHeight = 80; // Account for fixed navigation
