@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
+import { WebAssistant } from '@/components/ui/web-assistant';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, MapPin, Building, Award } from 'lucide-react';
@@ -174,6 +175,7 @@ export default function Experience() {
       </main>
 
       <Footer />
+      <WebAssistant />
     </div>
   );
 }

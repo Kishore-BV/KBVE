@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
+import { WebAssistant } from '@/components/ui/web-assistant';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Trophy, Medal, Award, Star, Calendar, Users } from 'lucide-react';
@@ -206,6 +207,7 @@ export default function Accolades() {
       </main>
 
       <Footer />
+      <WebAssistant />
     </div>
   );
 }
