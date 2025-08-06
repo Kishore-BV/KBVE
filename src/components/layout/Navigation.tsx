@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
   { id: 'about', label: 'About' },
@@ -20,43 +21,67 @@ export const Navigation = () => {
   const backgroundOpacity = useTransform(scrollY, [0, 100], [0, 0.95]);
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 20]);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
-
-      // Smooth active section detection
-      const sections = navItems.map(item => item.id);
-      const sectionOffsets = sections.map(id => {
-        const element = document.getElementById(id);
-        return element ? element.offsetTop - 100 : 0;
-      });
-
-      const currentSection = sections.reduce((acc, section, index) => {
-        if (scrollPosition >= sectionOffsets[index]) {
-          return section;
-        }
-        return acc;
-      }, sections[0]);
-
-      setActiveSection(currentSection);
-    };
-
-    const throttledScroll = () => {
-      requestAnimationFrame(handleScroll);
-    };
-
-    window.addEventListener('scroll', throttledScroll, { passive: true });
-    return () => window.removeEventListener('scroll', throttledScroll);
-  }, []);
+    if (location.pathname === '/experience') {
+      setActiveSection('experience');
+      return;
+    }
+    if (location.pathname === '/accolades') {
+      setActiveSection('accolades');
+      return;
+    }
+    if (location.pathname === '/projects') {
+      setActiveSection('projects');
+      return;
+    }
+    // Only use scroll-based detection on the homepage
+    if (location.pathname === '/') {
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        setIsScrolled(scrollPosition > 50);
+        const sections = navItems.map(item => item.id);
+        const sectionOffsets = sections.map(id => {
+          const element = document.getElementById(id);
+          return element ? element.offsetTop - 100 : 0;
+        });
+        const currentSection = sections.reduce((acc, section, index) => {
+          if (scrollPosition >= sectionOffsets[index]) {
+            return section;
+          }
+          return acc;
+        }, sections[0]);
+        setActiveSection(currentSection);
+      };
+      const throttledScroll = () => {
+        requestAnimationFrame(handleScroll);
+      };
+      window.addEventListener('scroll', throttledScroll, { passive: true });
+      // Run once on mount
+      handleScroll();
+      return () => window.removeEventListener('scroll', throttledScroll);
+    }
+  }, [location.pathname]);
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === 'experience') {
-      window.location.href = '/experience';
+      navigate('/experience');
       return;
     }
     if (sectionId === 'accolades') {
-      window.location.href = '/accolades';
+      navigate('/accolades');
+      return;
+    }
+    if (sectionId === 'projects') {
+      navigate('/projects');
+      return;
+    }
+    // If not on home, navigate to home and pass scroll target
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+      setIsMobileMenuOpen(false);
       return;
     }
     
