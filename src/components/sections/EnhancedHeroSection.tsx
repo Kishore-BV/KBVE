@@ -77,19 +77,6 @@ export default engineer;`;
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none z-0" />
 
-      {/* Hero Logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-8 left-8 z-20"
-      >
-        <img 
-          src="/Innovative Wordmark Logo with Robotic Arm.png" 
-          alt="Kishore BV Logo" 
-          className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-        />
-      </motion.div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">

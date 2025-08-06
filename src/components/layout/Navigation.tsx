@@ -23,6 +23,15 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'experience') {
+      window.location.href = '/experience';
+      return;
+    }
+    if (sectionId === 'accolades') {
+      window.location.href = '/accolades';
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
