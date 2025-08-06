@@ -60,14 +60,34 @@ export const Navigation = () => {
       return;
     }
     
+    // Handle About section - scroll to top of page
+    if (sectionId === 'about') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      setActiveSection(sectionId);
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    
+    // Handle other sections
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80;
+      const navHeight = 80; // Account for fixed navigation
+      const offsetTop = element.offsetTop - navHeight;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
       });
       setActiveSection(sectionId);
+    } else {
+      // If section doesn't exist, scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      setActiveSection('about');
     }
     setIsMobileMenuOpen(false);
   };
