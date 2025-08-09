@@ -37,7 +37,7 @@ export const IntroVideoSection = () => {
             <video 
               className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-6"
               controls 
-              poster="/video-thumbnail.jpg"
+              poster="/SF1.png"
               preload="metadata"
               aria-label="Self introduction video"
             >
