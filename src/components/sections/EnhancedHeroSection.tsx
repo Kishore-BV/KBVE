@@ -4,7 +4,8 @@ import { CodeBlock } from '@/components/ui/code-block';
 import { SkillCard } from '@/components/ui/skill-card';
 import { Button } from '@/components/ui/button';
 import { Scene3D } from '@/components/3d/Scene3D';
-import { Download, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
+import { SocialLinks } from '@/components/ui/SocialLinks';
 
 export const EnhancedHeroSection = () => {
   const typingTexts = [
@@ -132,24 +133,12 @@ export default engineer;`;
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex gap-4 justify-center lg:justify-start">
-              {[
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:kishore@example.com', label: 'Email' },
-              ].map(({ icon: Icon, href, label }) => (
-                <Button
-                  key={label}
-                  variant="ghost"
-                  size="icon"
-                  className="w-12 h-12 hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                  asChild
-                >
-                  <a href={href} aria-label={label}>
-                    <Icon className="w-6 h-6" />
-                  </a>
-                </Button>
-              ))}
+            <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
+              <SocialLinks 
+                variant="ghost" 
+                size="lg"
+                className="gap-2"
+              />
             </motion.div>
           </motion.div>
 

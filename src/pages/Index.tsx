@@ -4,6 +4,7 @@ import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { EnhancedHeroSection } from '@/components/sections/EnhancedHeroSection';
 import { EnhancedProjectsSection } from '@/components/sections/EnhancedProjectsSection';
+import { IntroVideoSection } from '@/components/sections/IntroVideoSection';
 import { WebAssistant } from '@/components/ui/web-assistant';
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
         <EnhancedHeroSection />
         {/* <EnhancedProjectsSection /> Removed, now on /projects */}
       </main>
+      <IntroVideoSection />
       <Footer />
       <WebAssistant />
     </div>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SocialLinks } from '@/components/ui/SocialLinks';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -56,25 +57,10 @@ export const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-lg font-semibold text-foreground">Connect</h3>
-            <div className="flex space-x-4">
-              {[
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:kishore@example.com', label: 'Email' },
-              ].map(({ icon: Icon, href, label }) => (
-                <Button
-                  key={label}
-                  variant="ghost"
-                  size="icon"
-                  className="w-10 h-10 hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                  asChild
-                >
-                  <a href={href} aria-label={label}>
-                    <Icon className="w-5 h-5" />
-                  </a>
-                </Button>
-              ))}
-            </div>
+            <SocialLinks variant="ghost" size="icon" className="justify-center" />
+            <p className="text-sm text-muted-foreground text-center">
+              Let's work together!
+            </p>
           </motion.div>
         </div>
 
@@ -86,6 +72,7 @@ export const Footer = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <p className="text-sm text-muted-foreground">
+            {currentYear} Kishore BV. All rights reserved. Built with cutting-edge technologies.
             © {currentYear} Kishore BV. All rights reserved. Built with cutting-edge technologies.
           </p>
         </motion.div>

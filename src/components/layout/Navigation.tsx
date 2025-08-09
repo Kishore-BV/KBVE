@@ -37,8 +37,9 @@ export const Navigation = () => {
       setActiveSection('projects');
       return;
     }
-    // Only use scroll-based detection on the homepage
+    // Handle root path (About section)
     if (location.pathname === '/') {
+      setActiveSection('about'); // Explicitly set 'about' as active for the root path
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
         setIsScrolled(scrollPosition > 50);

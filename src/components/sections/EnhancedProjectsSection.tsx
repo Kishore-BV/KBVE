@@ -11,7 +11,7 @@ const projects = [
     title: "Lifebuoy Rescue Drone",
     description: "Advanced drone system for water rescue operations with autonomous lifebuoy deployment, GPS tracking, and real-time communication for emergency response teams.",
     image: "/api/placeholder/600/400",
-    technologies: ["Arduino", "GPS", "Wireless Communication", "CAD Design", "Flight Control"],
+    technologies: ["Robotics", "GPS", "Wireless Communication", "CAD Design", "Flight Control"],
     liveLink: "#",
     githubLink: "#",
     featured: true,
@@ -35,7 +35,7 @@ const projects = [
     title: "Mobile Manipulator Robot",
     description: "Autonomous mobile robot with manipulator arm for pharmaceutical delivery and material handling in medical facilities.",
     image: "/api/placeholder/600/400",
-    technologies: ["ROS", "Arduino", "Servo Control", "Path Planning", "Computer Vision"],
+    technologies: ["ROS", "Robotics", "Servo Control", "Path Planning", "Computer Vision"],
     liveLink: "#",
     githubLink: "#",
     featured: false,
@@ -222,7 +222,7 @@ export const EnhancedProjectsSection = () => {
                       className="flex-1 bg-gradient-primary hover:shadow-neon-primary transition-all duration-300"
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
+                      View Project
                     </Button>
                     <Button 
                       size="sm" 
