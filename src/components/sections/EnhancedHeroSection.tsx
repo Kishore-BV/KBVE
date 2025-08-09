@@ -5,9 +5,11 @@ import { SkillCard } from '@/components/ui/skill-card';
 import { Button } from '@/components/ui/button';
 import { Scene3D } from '@/components/3d/Scene3D';
 import { Download, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { SocialLinks } from '@/components/ui/SocialLinks';
 
 export const EnhancedHeroSection = () => {
+  const navigate = useNavigate();
   const typingTexts = [
     'Robotics Engineer',
     'Drone Systems Developer',
@@ -118,7 +120,11 @@ export default engineer;`;
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 items-center lg:items-start">
-              <Button size="lg" className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group px-8 py-3 text-lg">
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary hover:shadow-neon-primary transition-all duration-300 group px-8 py-3 text-lg"
+                onClick={() => navigate('/projects')}
+              >
                 <ExternalLink className="w-5 h-5 mr-3 group-hover:animate-pulse" />
                 View Projects
               </Button>

@@ -58,7 +58,7 @@ const projects = [
     id: 5,
     title: "Maze Solver Robot",
     description: "Intelligent maze-solving robot using advanced algorithms and sensor fusion for autonomous navigation and obstacle avoidance.",
-    image: "/api/placeholder/600/400",
+    image: "/images/PTR.png",
     technologies: ["Arduino", "Ultrasonic Sensors", "Algorithm Design", "Motor Control", "Mapping"],
     liveLink: "#",
     githubLink: "#",
@@ -113,34 +113,26 @@ export const EnhancedProjectsSection = () => {
             <span className="text-neon">Featured</span> Projects
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
             A collection of projects showcasing cutting-edge technologies, innovative solutions, 
             and passion for creating exceptional digital experiences.
           </p>
-        </motion.div>
-
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-        >
-          {categories.map((category) => (
-            <Button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              variant={selectedCategory === category ? "default" : "outline"}
-              className={`font-mono text-sm transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-gradient-primary text-primary-foreground shadow-neon-primary'
-                  : 'border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/60'
-              }`}
-            >
-              {category}
-            </Button>
-          ))}
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                variant={selectedCategory === category ? "default" : "outline"}
+                className={`font-mono text-sm transition-all duration-300 ${
+                  selectedCategory === category
+                    ? 'bg-gradient-primary text-primary-foreground shadow-neon-primary'
+                    : 'border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/60'
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Projects Grid */}
