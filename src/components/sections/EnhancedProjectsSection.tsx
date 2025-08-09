@@ -58,7 +58,7 @@ const projects = [
     id: 5,
     title: "Maze Solver Robot",
     description: "Intelligent maze-solving robot using advanced algorithms and sensor fusion for autonomous navigation and obstacle avoidance.",
-    image: "/images/PTR.png",
+    image: "/PTR.png",
     technologies: ["Arduino", "Ultrasonic Sensors", "Algorithm Design", "Motor Control", "Mapping"],
     liveLink: "#",
     githubLink: "#",
