@@ -1,3 +1,48 @@
+// Certifications data
+import { useState } from 'react';
+
+const certificationsData = [
+  {
+    title: "Remote Pilot Certificate (Small Class Drones, VLOS)",
+    issuer: "DGCA, India",
+    year: "2024",
+    description: "Certified to operate small-class drones with Visual Line of Sight (VLOS) as per DGCA regulations.",
+    icon: Medal,
+    color: "text-blue-500",
+    category: "Drone Operations",
+    image: "/certificates/remote-pilot.jpg",
+  },
+  {
+    title: "Fundamentals of AI & ML",
+    issuer: "Coursera / Amrita Vishwa Vidyapeetham",
+    year: "2023",
+    description: "Completed foundational course in Artificial Intelligence and Machine Learning.",
+    icon: Award,
+    color: "text-purple-500",
+    category: "AI/ML",
+    image: "/certificates/ai-ml.jpg",
+  },
+  {
+    title: "CAD Modeling & Analysis",
+    issuer: "Amrita Vishwa Vidyapeetham",
+    year: "2023",
+    description: "Training in CAD design, modeling, and structural analysis for engineering applications.",
+    icon: Star,
+    color: "text-yellow-500",
+    category: "CAD Design",
+    image: "/certificates/cad.jpg",
+  },
+  {
+    title: "Actuators and Drives",
+    issuer: "Amrita Vishwa Vidyapeetham",
+    year: "2022",
+    description: "Coursework on actuators, drives, and their integration in robotics systems.",
+    icon: Trophy,
+    color: "text-green-500",
+    category: "Robotics",
+    image: "/certificates/actuators.jpg",
+  }
+];
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
@@ -61,6 +106,7 @@ const accoladesData = [
 ];
 
 export default function Accolades() {
+  const [openCert, setOpenCert] = useState(null);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -185,6 +231,63 @@ export default function Accolades() {
               </div>
             </motion.div>
 
+            {/* Certifications Grid */}
+            <motion.div variants={itemVariants}>
+              <h2 className="text-3xl font-bold mb-8 text-center text-gradient bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Certifications</h2>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {certificationsData.map((cert, idx) => {
+                  const IconComponent = cert.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.02 }}
+                      className="group cursor-pointer"
+                      onClick={() => setOpenCert(cert)}
+                    >
+                      <Card className="glass border-accent/20 hover:border-accent/40 transition-all duration-300 p-8 h-full flex flex-col justify-between">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="p-3 bg-gradient-secondary/10 rounded-xl group-hover:bg-gradient-secondary/20 transition-colors">
+                            <IconComponent className={`w-7 h-7 ${cert.color}`} />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
+                              {cert.title}
+                            </h3>
+                            <div className="text-sm text-muted-foreground">{cert.issuer}</div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-muted-foreground mb-4">{cert.description}</p>
+                        </div>
+                        <div className="flex items-center justify-between mt-2">
+                          <Badge variant="outline" className="border-accent/30 text-accent">
+                            {cert.category}
+                          </Badge>
+                          <span className="text-primary font-mono font-bold flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {cert.year}
+                          </span>
+                        </div>
+                      </Card>
+                    </motion.div>
+                  );
+                })}
+              </div>
+              {/* Floating Certificate Modal */}
+              {openCert && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setOpenCert(null)}>
+                  <div className="bg-background rounded-xl shadow-2xl p-6 max-w-lg w-full relative" onClick={e => e.stopPropagation()}>
+                    <button className="absolute top-2 right-2 text-xl text-muted-foreground hover:text-primary" onClick={() => setOpenCert(null)}>&times;</button>
+                    <h3 className="text-xl font-bold mb-2 text-center">{openCert.title}</h3>
+                    <img src={openCert.image} alt={openCert.title} className="w-full rounded-lg mb-4 border border-accent" />
+                    <div className="text-center text-muted-foreground text-sm mb-2">{openCert.issuer} &bull; {openCert.year}</div>
+                    <div className="text-center text-accent font-mono text-xs">{openCert.category}</div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+
             {/* Call to Action */}
             <motion.div variants={itemVariants} className="text-center">
               <Card className="glass border-accent/20 p-12 bg-gradient-to-r from-accent/5 to-secondary/5">
@@ -195,12 +298,15 @@ export default function Accolades() {
                   Always open to new opportunities in robotics, AI, and automation. 
                   Let's discuss how we can innovate together.
                 </p>
-                <motion.button
+                <motion.a
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gradient-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold shadow-neon-primary hover:shadow-neon-primary/70 transition-all duration-300"
+                  href="https://n8n-pgct.onrender.com/form-test/5ae1af06-cb63-48f1-b955-ed152e63d926"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold shadow-neon-primary hover:shadow-neon-primary/70 transition-all duration-300 inline-block cursor-pointer"
                 >
                   Get In Touch
-                </motion.button>
+                </motion.a>
               </Card>
             </motion.div>
           </motion.div>
