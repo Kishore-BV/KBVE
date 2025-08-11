@@ -34,16 +34,27 @@ export const IntroVideoSection = () => {
           </div>
           
           <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border/30 mb-8">
-            <video 
-              className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-6"
-              controls 
-              poster="SF1.png"
-              preload="metadata"
-              aria-label="Self introduction video"
-            >
-              <source src="Self Intro.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-6">
+              <video 
+                className="absolute inset-0 w-full h-full object-cover"
+                controls 
+                preload="metadata"
+                aria-label="Self introduction video"
+                playsInline
+                webkit-playsinline="true"
+                poster="/SF1.png"
+              >
+                <source src="/Self Intro.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
             
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               <Button 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .video-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Playback Test</h1>
+    <p>This page tests different video loading methods to help diagnose playback issues.</p>
+    
+    <h2>Test 1: Direct Video Tag</h2>
+    <div class="video-container">
+        <video width="640" height="360" controls>
+            <source src="/Self Intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Using: <code>&lt;source src="/Self Intro.mp4" type="video/mp4"&gt;</code></p>
+    </div>
+
+    <h2>Test 2: Video with Full URL</h2>
+    <div class="video-container">
+        <video width="640" height="360" controls>
+            <source src="https://kishorebv-lumina-flow.vercel.app/Self%20Intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Using: <code>&lt;source src="https://kishorebv-lumina-flow.vercel.app/Self%20Intro.mp4" type="video/mp4"&gt;</code></p>
+    </div>
+
+    <h2>Test 3: Video with Poster</h2>
+    <div class="video-container">
+        <video width="640" height="360" controls poster="/SF1.png">
+            <source src="/Self Intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Using poster attribute and relative path</p>
+    </div>
+
+    <h2>Video Information</h2>
+    <div id="video-info">
+        <p>Checking video information...</p>
+    </div>
+
+    <script>
+        // Test if video can be loaded
+        function testVideoLoad() {
+            const video = document.createElement('video');
+            const source = document.createElement('source');
+            source.src = '/Self Intro.mp4';
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            
+            video.oncanplay = function() {
+                document.getElementById('video-info').innerHTML = 
+                    `<p class="success">✓ Video loaded successfully!</p>
+                     <p>Duration: ${video.duration.toFixed(2)} seconds</p>
+                     <p>Resolution: ${video.videoWidth} x ${video.videoHeight}</p>`;
+            };
+            
+            video.onerror = function() {
+                document.getElementById('video-info').innerHTML = 
+                    '<p class="error">✗ Error loading video. Check console for details.</p>';
+                console.error('Video loading error:', video.error);
+            };
+            
+            // Trigger loading
+            video.load();
+        }
+        
+        // Run tests when page loads
+        window.onload = testVideoLoad;
+    </script>
+</body>
+</html>
