@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { SocialLinks } from '@/components/ui/SocialLinks';
+import { ContactButton } from '@/components/ui/ContactButton';
 
 export const ContactSection = () => {
   const containerVariants = {
@@ -50,14 +51,23 @@ export const ContactSection = () => {
           </motion.p>
           
           <motion.div 
-            className="flex justify-center"
+            className="flex flex-col items-center space-y-6"
             variants={itemVariants}
           >
-            <SocialLinks 
-              variant="outline" 
-              size="lg"
-              className="gap-4"
-            />
+            <div className="flex justify-center">
+              <SocialLinks 
+                variant="outline" 
+                size="lg"
+                className="gap-4"
+              />
+            </div>
+            <div className="text-center">
+              <p className="text-muted-foreground text-sm mb-3">Or send me a message directly</p>
+              <ContactButton 
+                size="lg"
+                className="px-8 py-5 text-base"
+              />
+            </div>
           </motion.div>
           
           <motion.p 

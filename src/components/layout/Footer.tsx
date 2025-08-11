@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { SocialLinks } from '@/components/ui/SocialLinks';
+import { ContactButton } from '@/components/ui/ContactButton';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -57,8 +56,11 @@ export const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-lg font-semibold text-foreground">Connect</h3>
-            <SocialLinks variant="ghost" size="icon" className="justify-center" />
-            <p className="text-sm text-muted-foreground text-center">
+            <SocialLinks variant="ghost" size="icon" className="justify-center mb-4" />
+            <ContactButton 
+              className="shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:scale-105"
+            />
+            <p className="text-sm text-muted-foreground text-center mt-4">
               Let's work together!
             </p>
           </motion.div>
