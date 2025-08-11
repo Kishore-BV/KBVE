@@ -44,16 +44,9 @@ export const IntroVideoSection = () => {
                 webkit-playsinline="true"
                 poster="/SF1.png"
               >
-                <source src="/Self Intro.mp4" type="video/mp4" />
+                <source src={encodeURI('/Self Intro.mp4')} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 mt-6">
