@@ -37,11 +37,11 @@ export const IntroVideoSection = () => {
             <video 
               className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-6"
               controls 
-              poster="/SF1.png"
+              poster="SF1.png"
               preload="metadata"
               aria-label="Self introduction video"
             >
-              <source src="public/Self Intro.mp4" type="video/mp4" />
+              <source src="Self Intro.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
