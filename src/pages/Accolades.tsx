@@ -8,17 +8,19 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Trophy, Medal, Award, Star, Calendar, Users } from 'lucide-react';
 
+import { asset } from '@/lib/asset';
+
 /* ---------------------- Data ---------------------- */
 const certificationsData = [
   {
     title: "Remote Pilot Certificate (Small Class Drones, VLOS)",
     issuer: "DGCA, India",
-    year: "2024",
+    year: "2025",
     description: "Certified to operate small-class drones with Visual Line of Sight (VLOS) as per DGCA regulations.",
     icon: Medal,
     color: "text-blue-500",
     category: "Drone Operations",
-    image: "/certificates/remote-pilot.jpg",
+  image: 'public/1751628616261.jpeg',
   },
   {
     title: "Fundamentals of AI & ML",
@@ -28,7 +30,7 @@ const certificationsData = [
     icon: Award,
     color: "text-purple-500",
     category: "AI/ML",
-    image: "/certificates/ai-ml.jpg",
+  image: 'certificates/ai-ml.jpg',
   },
   {
     title: "CAD Modeling & Analysis",
@@ -38,7 +40,7 @@ const certificationsData = [
     icon: Star,
     color: "text-yellow-500",
     category: "CAD Design",
-    image: "/certificates/cad.jpg",
+  image: 'certificates/cad.jpg',
   },
   {
     title: "Actuators and Drives",
@@ -48,7 +50,7 @@ const certificationsData = [
     icon: Trophy,
     color: "text-green-500",
     category: "Robotics",
-    image: "/certificates/actuators.jpg",
+  image: 'certificates/actuators.jpg',
   },
 ] as const;
 
@@ -146,8 +148,8 @@ export default function Accolades() {
             <motion.div variants={itemVariants}>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {[{ label: 'Awards Won', value: '5+' },
-                  { label: 'Publications', value: '3' },
-                  { label: 'Years Experience', value: '2+' },
+                  { label: 'Publications', value: '0' },
+                  { label: 'Years Experience', value: '3+' },
                   { label: 'Projects Led', value: '8+' }].map((stat, index) => (
                   <Card key={index} className="glass border-primary/20 p-6 text-center">
                     <div className="text-3xl font-bold text-primary">{stat.value}</div>
@@ -248,10 +250,10 @@ export default function Accolades() {
                       &times;
                     </button>
                     <h3 className="text-xl font-bold mb-2 text-center">{openCert.title}</h3>
-                    <img src={openCert.image} alt={openCert.title} className="w-full rounded-lg mb-4 border border-accent" />
-                    <div className="text-center text-muted-foreground text-sm mb-2">
-                      {openCert.issuer} &bull; {openCert.year}
-                    </div>
+<img src={asset(openCert.image)} alt={openCert.title} className="w-full rounded-lg mb-4 border border-accent" />
+<div className="text-center text-muted-foreground text-sm mb-2">
+  {openCert.issuer} &bull; {openCert.year}
+</div>
                     <div className="text-center text-accent font-mono text-xs">{openCert.category}</div>
                   </div>
                 </div>
