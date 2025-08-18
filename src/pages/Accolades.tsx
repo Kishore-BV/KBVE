@@ -23,14 +23,14 @@ const certificationsData = [
   image: 'public/1751628616261.jpeg',
   },
   {
-    title: "Fundamentals of AI & ML",
+    title: "AWS Academy Graduate",
     issuer: "Coursera / Amrita Vishwa Vidyapeetham",
-    year: "2023",
-    description: "Completed foundational course in Artificial Intelligence and Machine Learning.",
+    year: "2022",
+    description: "Completed course in AWS Academy.",
     icon: Award,
     color: "text-purple-500",
     category: "AI/ML",
-  image: 'certificates/ai-ml.jpg',
+  image: 'public/1703426690812.jpeg',
   },
   {
     title: "CAD Modeling & Analysis",
