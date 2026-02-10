@@ -29,7 +29,7 @@ export const WebAssistant = () => {
 
   // ====== CONFIG ======
   const webhookUrl =
-    'https://n8n-pgct.onrender.com/webhook/2cf00af6-03e1-4407-9765-a66b01233fe9/chat';
+    'https://n8n.kishoren8n.in/webhook/2cf00af6-03e1-4407-9765-a66b01233fe9/chat';
 
   // ====== UTILS ======
   const getSessionId = () => {
@@ -205,11 +205,10 @@ export const WebAssistant = () => {
                         className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
                       >
                         <div
-                          className={`max-w-[80%] p-2 rounded-lg text-sm ${
-                            message.isUser
+                          className={`max-w-[80%] p-2 rounded-lg text-sm ${message.isUser
                               ? 'bg-gradient-primary text-primary-foreground'
                               : 'bg-card/50 text-foreground border border-primary/20'
-                          }`}
+                            }`}
                         >
                           {message.content}
                           {/* Inline resume button if bot mentioned it */}
