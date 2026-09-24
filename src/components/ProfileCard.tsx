@@ -222,10 +222,10 @@ export default function ProfileCard({
               </div>
               <div className="flex flex-col">
                 <span className="text-[9px] font-mono-code font-semibold tracking-wider text-[#525252] uppercase">
-                  GARUDA // NPD LAB
+                  GARUDA AEROSPACE LTD
                 </span>
                 <span className="text-[7.5px] font-mono-code text-[#99948B] leading-none">
-                  ENG ID: KBV-RND-25
+                  Junior Engineer - Defence R&D
                 </span>
               </div>
             </div>
