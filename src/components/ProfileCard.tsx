@@ -286,15 +286,15 @@ export default function ProfileCard({
               <div className="grid grid-cols-3 gap-1 pt-0.5 text-center">
                 <div className="bg-[#EFECE6]/80 rounded p-1 border border-[#E3DDD1]">
                   <span className="block text-[7.5px] font-mono-code text-[#888] uppercase tracking-wider">DOMAIN</span>
-                  <span className="block text-[9px] font-mono-code font-medium text-[#262626]">UAV & ROBOTICS</span>
+                  <span className="block text-[9px] font-mono-code font-medium text-[#262626]">ROBOTICS</span>
                 </div>
                 <div className="bg-[#EFECE6]/80 rounded p-1 border border-[#E3DDD1]">
                   <span className="block text-[7.5px] font-mono-code text-[#888] uppercase tracking-wider">STAGE</span>
-                  <span className="block text-[9px] font-mono-code font-medium text-[#262626]">CAD → FLIGHT</span>
+                  <span className="block text-[9px] font-mono-code font-medium text-[#262626]">CONCEPT → FIELD</span>
                 </div>
                 <div className="bg-[#EFECE6]/80 rounded p-1 border border-[#E3DDD1]">
                   <span className="block text-[7.5px] font-mono-code text-[#888] uppercase tracking-wider">SPECIALTY</span>
-                  <span className="block text-[9px] font-mono-code font-medium text-[#262626]">MECHANISMS</span>
+                  <span className="block text-[9px] font-mono-code font-medium text-[#262626]">MECHATRONICS</span>
                 </div>
               </div>
 
