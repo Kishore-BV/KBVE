@@ -7,7 +7,7 @@ interface FeaturedProjectsProps {
 }
 
 export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
-  const [expandedId, setExpandedId] = useState<string | null>('mobile-robotic-system');
+  const [expandedId, setExpandedId] = useState<string | null>(projects[0]?.id || null);
 
   const toggleProject = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -105,15 +105,30 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                               Engineering Scope & Implementation
                             </h4>
                             <ul className="space-y-2">
-                              {project.coreContributions.map((point, cIdx) => (
-                                <li
-                                  key={cIdx}
-                                  className="text-xs sm:text-sm text-[#242424] flex items-start gap-2.5 leading-relaxed"
-                                >
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#171717] mt-2 shrink-0" aria-hidden="true" />
-                                  <span>{point}</span>
-                                </li>
-                              ))}
+                              {project.coreContributions.map((point, cIdx) => {
+                                const dashIndex = point.indexOf(' — ');
+                                return (
+                                  <li
+                                    key={cIdx}
+                                    className="text-xs sm:text-sm text-[#242424] flex items-start gap-2.5 leading-relaxed"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-[#171717] mt-2 shrink-0" aria-hidden="true" />
+                                    <span>
+                                      {dashIndex !== -1 ? (
+                                        <>
+                                          <strong className="font-semibold text-[#171717]">
+                                            {point.slice(0, dashIndex)}
+                                          </strong>
+                                          <span className="text-[#8A867E] mx-1">—</span>
+                                          <span>{point.slice(dashIndex + 3)}</span>
+                                        </>
+                                      ) : (
+                                        point
+                                      )}
+                                    </span>
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </div>
                         )}
